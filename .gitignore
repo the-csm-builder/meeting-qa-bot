@@ -723,3 +723,5 @@ lex-qa/yarl-1.9.2.dist-info/RECORD
 lex-qa/yarl-1.9.2.dist-info/top_level.txt
 lex-qa/yarl-1.9.2.dist-info/WHEEL
 notebook/transcribe.ipynb
+.DS_Store
+template.yaml
