@@ -13,14 +13,16 @@ table = dynamodb.Table('ConversationHistory')
 
 def lambda_handler(event, context):
     # Get the summary from S3
-    file_obj = s3.get_object(Bucket='transcribed-data-outbound', Key='summary.txt')
+    file_obj = s3.get_object(Bucket='qna-transcribed-data-outbound', Key='summary.txt')
     summary_string = file_obj["Body"].read().decode('utf-8')
 
     # Get the user's question from the event
     user_question = event["question"]
+    # add debugging
+    print (user_question)
 
     # Get the user's ID from the event
-    user_id = event['userId']
+    user_id = 'test_user'
 
     # Retrieve conversation history from DynamoDB
     response = table.query(
@@ -59,6 +61,8 @@ def lambda_handler(event, context):
             'conversationHistory': json.dumps(conversation_history)  # Store it as a JSON string
         }
     )
+    # add debugging dynamo db
+    print (conversation_history)
 
     # Return the assistant's answer
     return {"answer": answer}

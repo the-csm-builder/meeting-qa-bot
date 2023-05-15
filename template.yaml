@@ -11,7 +11,7 @@ Resources:
   TranscriptBucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: 'transcribed-data-outbound'
+      BucketName: 'qna-transcribed-data-outbound'
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
